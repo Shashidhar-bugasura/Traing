@@ -66,12 +66,13 @@ body {
 #content p {
     margin:40px;
     font-size: 20px;
+
 }
 
 #footer {
     margin-top: 20px;
     background-color: #34495E;
-    color: #ECF0F1;
+    color: #bbcbcf;
     text-align: center;
     padding: 15px;
     font-size: 20px;
