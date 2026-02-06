@@ -2,51 +2,87 @@
 <html>
 <head>
 	<title>My Resume</title>
+	<link rel="stylesheet" href="../CSS/Shashidhar_bugasura.css">
 </head>
 <body>
-<div id="main">
-		<div id="header">
-			Shashidhar V S
-		</div>
-
-		<div id="container">
-
-			<div id="leftnav">
-				<ul>
-					<li>Objective</li>
-					<li>Education</li>
-					<li>Work Experience</li>
-					<li>Projects</li>
-				</ul>
+	<div id="main">
+			<div id="header">
+				Shashidhar V S
 			</div>
 
-			<div id="content">
-				<p>To obtain a Good Position where I can apply my skills and grow professionally.</p>
+			<div id="container">
 
-				<p>
-					Bachelor of Engineering<br>
-					VTU University<br>
-					2021 - 2025
-				</p>
+				<div id="leftnav">
+					<ul>
+						<li>Objective</li>
+						<li>Education</li>
+						<li>Work Experience</li>
+						<li>Projects</li>
+					</ul>
+				</div>
+
+				<div id="content">
+					<p>To obtain a Good Position where I can apply my skills and grow professionally.</p>
+
+					<p>
+						Bachelor of Engineering<br>
+						VTU University<br>
+						2021 - 2025
+					</p>
 
 
-				<p>
-					Software Engineer Intern<br>
-					Moolya Software Testing , Bangalore<br>
-					Jan 2026 - June 2026
-				</p>
+					<p>
+						Software Engineer Intern<br>
+						Moolya Software Testing , Bangalore<br>
+						Jan 2026 - June 2026
+					</p>
 
-				<p>
-					<b>Resume Webpage</b><br>
-					Created a resume webpage using HTML and CSS
-				</p>
+					<p>
+						<b>Resume Webpage</b><br>
+						Created a resume webpage using HTML and CSS
+					</p>
+				</div>
+
 			</div>
 
-		</div>
-
-		<div id="footer">
-			Phone: 8970684721 | Email: shashidhar.v@bugasura.io
-		</div>
+			<div id="footer">
+				Phone: 8970684721 | Email: shashidhar.v@bugasura.io
+			</div>
 	</div>
+
+	<hr>
+
+	<div id="interaction">
+		<h2>User Interaction</h2>
+
+		<h3>Max</h3>
+		<input type="number" id="num1">
+		<input type="number" id="num2">
+		<button onclick="showMax()">Find Max</button>
+		<span id="max"></span>
+
+		<hr>
+
+		<h3>Reverse</h3>
+		<input type="text" id="revString">
+		<button onclick="showReverse()">Reverse</button>
+		<div id="reverse"></div>
+
+		<hr>
+
+		<h3>FindLargestWord</h3>
+		<input type="text" id="wordList" placeholder="Comma separated words">
+		<button onclick="showLargestWord()">Find Largest</button>
+		<div id="largestWord"></div>
+
+		<hr>
+
+		<h3>Cookies</h3>
+		Name: <input type="text" id="username"><br><br>
+		Phone: <input type="text" id="phone"><br><br>
+		<button onclick="saveCookie()">Save</button>
+	</div>
+
+	<script src="../JAVASCRIPT/Shashidhar_bugasura.js"></script>
 </body>
 </html>
