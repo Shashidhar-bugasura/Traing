@@ -10,7 +10,8 @@ body {
 }
 
 #header {
-    position: absolute;
+    position: fixed;
+    margin-bottom: 50px;
     top: 10px;
     left: 455px;
     width: 900px;
