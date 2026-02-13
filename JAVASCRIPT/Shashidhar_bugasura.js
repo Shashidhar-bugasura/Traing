@@ -123,4 +123,61 @@ $(document).ready(function () {
         alert("Footer animation completed!");
     });
 
+    // Accordion
+    $("#accordion").accordion({
+        collapsible: true,
+        heightStyle: "content",
+    });
+
+    // Tabs
+    $("#tabs").tabs();
+
+    // jQuery UI Buttons with Icons
+    $("button").button();
+
+    $("button").each(function () {
+        $(this).button("option", "icons", {
+            primary: "ui-icon-gear"
+        });
+    });
+
+    // Datepicker
+    $("#datepicker").datepicker({
+        dateFormat: "dd/mm/yy"
+    });
+
+    // Modal Dialog
+    $("#dialogBox").dialog({
+        autoOpen: false,
+        modal: true,
+        buttons: {
+            "OK": function () {
+                $(this).dialog("close");
+            },
+            "Cancel": function () {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+    // SlideDown Header → Open Dialog Instead of Alert
+    $("#header").hide().slideDown(1500, function () {
+        $("#dialogBox").dialog("open");
+    });
+
+    // Autocomplete for Largest Word Input
+    var techStack = [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Java",
+        "SQL",
+        "Spring",
+        "Hibernate",
+        "Java DataBase Connectivity"
+    ];
+
+    $("#wordList").autocomplete({
+        source: techStack
+    });
 });

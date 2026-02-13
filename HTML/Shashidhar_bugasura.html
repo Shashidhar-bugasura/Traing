@@ -1,69 +1,62 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>My Resume</title>
 	<link rel="stylesheet" href="../CSS/Shashidhar_bugasura.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-	<div id="main">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
 
+</head>
+
+<body>
+	<div id="accordion">
+
+		<h3>Header</h3>
+		<div>
 			<div id="header">
 				Shashidhar V S
 			</div>
-	     	<div id="container">
+		</div>
 
-				<div id="leftnav">
-					<ul>
-						<li>Objective</li>
-						<li>Education</li>
-						<li>Work Experience</li>
-						<li>Projects</li>
-					</ul>
+		<h3>Center Content</h3>
+		<div>
+			<div id="tabs">
+				<ul>
+					<li><a href="#tab1">Objective</a></li>
+					<li><a href="#tab2">Education</a></li>
+					<li><a href="#tab3">Software Exposure</a></li>
+				</ul>
+
+				<div id="tab1">
+					<p>To obtain a Good Position where I can apply my skills and grow professionally.</p>
 				</div>
 
-				<div id="content">
-    				<table width="100%" cellpadding="15" cellspacing="0" border="1">
-    				    <tr>
-    				        <td>
-    				            <strong>Objective</strong><br>
-    				            To obtain a Good Position where I can apply my skills and grow professionally.
-    				        </td>
-    				    </tr>
-					
-    				    <tr>
-    				        <td>
-    				            <strong>Education</strong><br>
-    				            Bachelor of Engineering<br>
-    				            VTU University<br>
-    				            2021 - 2025
-    				        </td>
-    				    </tr>
-					
-    				    <tr>
-    				        <td>
-    				            <strong>Work Experience</strong><br>
-    				            Software Engineer Intern<br>
-    				            Moolya Software Testing, Bangalore<br>
-    				            Jan 2026 - June 2026
-    				        </td>
-    				    </tr>
-					
-    				    <tr>
-    				        <td>
-    				            <strong>Project</strong><br>
-    				            Resume Webpage<br>
-    				            Created a resume webpage using HTML and CSS
-    				        </td>
-    				    </tr>
-    				</table>
+				<div id="tab2">
+					<p>
+						Bachelor of Engineering<br>
+						VTU University<br>
+						2021 - 2025
+					</p>
+				</div>
+
+				<div id="tab3">
+					<p>Java, JDBC , Spring, HTML, CSS, JavaScript</p>
 				</div>
 			</div>
 
+		</div>
+
+		<h3>Footer</h3>
+		<div>
 			<div id="footer">
 				Phone: 8970684721 | Email: shashidhar.v@bugasura.io
 			</div>
+		</div>
+
 	</div>
+
 
 	<hr>
 
@@ -96,8 +89,19 @@
 		Name: <input type="text" id="username"><br><br>
 		Phone: <input type="text" id="phone"><br><br>
 		<button onclick="saveCookie()">Save</button>
+
+		<hr>
+
+		<h3>Select Date</h3>
+		<input type="text" id="datepicker">
+
+	</div>
+
+	<div id="dialogBox" title="Confirmation">
+		<p>Header Animation Completed!</p>
 	</div>
 
 	<script src="../JAVASCRIPT/Shashidhar_bugasura.js"></script>
 </body>
+
 </html>

@@ -3,18 +3,8 @@ body {
     background-color: rgba(134, 130, 130, 0.308);
 }
 
-#main {
-    width: 900px;
-    margin: auto; 
-    padding-top: 110px; 
-}
-
 #header {
-    position: fixed;
     margin-bottom: 50px;
-    top: 10px;
-    left: 455px;
-    width: 900px;
     background-color: #74c0f3;
     color: rgb(0, 0, 0);
     text-align: center;
@@ -56,8 +46,7 @@ body {
 }
 
 #content {
-    width: 75%;
-    height: 600px;   
+    width: 75%;  
     padding: 25px;
     font-size: 17px;
     line-height: 1.6;
@@ -107,14 +96,9 @@ body {
 }
 
 #interaction button {
-    padding: 8px 15px;
     font-size: 14px;
-    background-color: #3498DB;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
 }
+
 
 #interaction button:hover {
     background-color: #2E86C1;
@@ -129,4 +113,25 @@ body {
 
 #interaction hr {
     margin: 20px 0;
+}
+
+#accordion {
+    width: 900px;
+    margin: auto;
+}
+
+#tabs {
+    margin-top: 20px;
+}
+
+#datepicker {
+    width: 200px;
+}
+
+#wordList {
+    width: 250px;
+}
+
+.ui-accordion .ui-accordion-header {
+    font-size: 18px;
 }
