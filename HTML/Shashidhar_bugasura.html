@@ -3,52 +3,89 @@
 
 <head>
 	<title>My Resume</title>
-	<link rel="stylesheet" href="../CSS/Shashidhar_bugasura.css">
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap CSS FIRST -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery UI CSS -->
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+
+	<!-- Your Custom CSS LAST (so it overrides Bootstrap if needed) -->
+	<link rel="stylesheet" href="../CSS/Shashidhar_bugasura.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+	<!-- jQuery MUST come before jQuery UI and Bootstrap JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!-- jQuery UI AFTER jQuery -->
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+	<!-- Bootstrap JS LAST -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
 </head>
 
 <body>
-	<div id="accordion">
+	<div class="container">
 
-		<h3>Header</h3>
 		<div>
 			<div id="header">
 				Shashidhar V S
+				<span class="badge">Student</span>
 			</div>
 		</div>
 
-		<h3>Center Content</h3>
-		<div>
-			<div id="tabs">
-				<ul>
-					<li><a href="#tab1">Objective</a></li>
-					<li><a href="#tab2">Education</a></li>
-					<li><a href="#tab3">Software Exposure</a></li>
+
+
+		<div class="row">
+			<!-- TABLET TOGGLE BUTTON -->
+			<div class="col-sm-12 visible-sm tablet-toggle">
+				<button class="btn btn-primary" id="menuToggle">
+					<span class="glyphicon glyphicon-menu-hamburger"></span>
+				</button>
+			</div>
+
+			<div class="col-md-3 left-nav" id="sidebar">
+				<ul class="nav nav-pills nav-stacked" id="mainNav">
+					<li class="active">
+						<a data-toggle="tab" data-placement="right" href="#objective" title=" On Objective">
+							<i class="fa-solid fa-user"></i> Objective
+						</a>
+					</li>
+					<li>
+						<a data-toggle="tab" data-placement="right" href="#education" title=" On Education">
+							<i class="fa-solid fa-graduation-cap"></i> Education
+						</a>
+					</li>
+					<li>
+						<a data-toggle="tab" data-placement="right" href="#software" title=" On Software Exposure">
+							<i class="fa-solid fa-code"></i> Software Exposure
+						</a>
+					</li>
 				</ul>
-
-				<div id="tab1">
-					<p>To obtain a Good Position where I can apply my skills and grow professionally.</p>
-				</div>
-
-				<div id="tab2">
-					<p>
-						Bachelor of Engineering<br>
-						VTU University<br>
-						2021 - 2025
-					</p>
-				</div>
-
-				<div id="tab3">
-					<p>Java, JDBC , Spring, HTML, CSS, JavaScript</p>
-				</div>
 			</div>
 
+			<div class="col-md-9 col-sm-8 col-xs-12 content">
+				<div class="tab-content">
+					<div id="objective" class="tab-pane fade in active">
+						&nbsp;<p>To obtain a good position where I can apply my skills and grow professionally.</p>
+					</div>
+
+					<div id="education" class="tab-pane fade">
+						&nbsp;<p> Bachelor of Engineering <br> VTU University (2021-2025)</p>
+					</div>
+
+					<div id="software" class="tab-pane fade">
+						&nbsp;<p> Java <br> JDBC <br> Spring <br> HTML <br> CSS <br> JavaScript</p>
+					</div>
+				</div>
+			</div>
 		</div>
 
-		<h3>Footer</h3>
 		<div>
 			<div id="footer">
 				Phone: 8970684721 | Email: shashidhar.v@bugasura.io
@@ -56,50 +93,103 @@
 		</div>
 
 	</div>
-
+	<!-- MODAL -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Confirmation</h4>
+				</div>
+				<div class="modal-body">
+					<p>Do you want to continue?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="okBtn">OK</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<hr>
+	<div class="container">
+		<div id="interaction" class="col-sm-12 col-xs-12">
+			
+			<h2>User Interaction</h2>
 
-	<div id="interaction">
-		<h2>User Interaction</h2>
+			<!-- Max -->
+			<h3>Max</h3>
+			<div class="form-group">
+				<input type="number" id="num1" class="form-control" placeholder="Enter Number 1">
+			</div>
 
-		<h3>Max</h3>
-		<input type="number" id="num1">
-		<input type="number" id="num2">
-		<button onclick="showMax()">Find Max</button>
-		<span id="max"></span>
+			<div class="form-group">
+				<input type="number" id="num2" class="form-control" placeholder="Enter Number 2">
+			</div>
 
-		<hr>
+			<button class="btn btn-primary" onclick="showMax()">Find Max</button>
+			<span id="max"></span>
 
-		<h3>Reverse</h3>
-		<input type="text" id="revString">
-		<button onclick="showReverse()">Reverse</button>
-		<div id="reverse"></div>
+			<hr>
 
-		<hr>
+			<!-- Reverse -->
+			<h3>Reverse</h3>
+			<div class="form-group">
+				<input type="text" id="revString" class="form-control" placeholder="Enter Text">
+			</div>
 
-		<h3>FindLargestWord</h3>
-		<input type="text" id="wordList" placeholder="Comma separated words">
-		<button onclick="showLargestWord()">Find Largest</button>
-		<div id="largestWord"></div>
+			<button class="btn btn-success" onclick="showReverse()">Reverse</button>
+			<div id="reverse"></div>
 
-		<hr>
+			<hr>
 
-		<h3>Cookies</h3>
-		Name: <input type="text" id="username"><br><br>
-		Phone: <input type="text" id="phone"><br><br>
-		<button onclick="saveCookie()">Save</button>
+			<!-- Find Largest Word -->
+			<h3>Find Largest Word</h3>
+			<div class="form-group">
+				<input type="text" id="wordList" class="form-control" placeholder="Comma separated words">
+			</div>
 
-		<hr>
+			<button class="btn btn-info" onclick="showLargestWord()">Find Largest</button>
+			<div id="largestWord"></div>
 
-		<h3>Select Date</h3>
-		<input type="text" id="datepicker">
+			<hr>
 
+			<!-- Cookies -->
+			<h3>Cookies</h3>
+			<div class="form-group">
+				<label>Name</label>
+				<input type="text" id="username" class="form-control" placeholder="Enter Name">
+			</div>
+
+			<div class="form-group">
+				<label>Phone</label>
+				<input type="text" id="phone" class="form-control" placeholder="Enter Phone">
+			</div>
+
+			<button class="btn btn-warning" onclick="saveCookie()">Save</button>
+
+			<hr>
+
+			<!-- Datepicker -->
+			<h3>Select Date</h3>
+			<div class="form-group">
+				<input type="text" id="datepicker" class="form-control" placeholder="Select Date">
+			</div>
+
+
+			<br><br>
+
+			<button class="btn btn-success" id="showToast">
+				Show Toast
+			</button>
+
+		</div>
 	</div>
 
-	<div id="dialogBox" title="Confirmation">
-		<p>Header Animation Completed!</p>
-	</div>
+
+	<!-- TOAST -->
+	<div id="toast">Action Completed Successfully!</div>
 
 	<script src="../JAVASCRIPT/Shashidhar_bugasura.js"></script>
 </body>

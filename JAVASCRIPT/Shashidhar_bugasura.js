@@ -42,8 +42,8 @@ function showLargestWord() {
     let words = input.split(",");
     document.getElementById("largestWord").innerHTML =
         FindLongestWord(words);
-}
 
+}
 
 function saveCookie() {
     let name = document.getElementById("username").value;
@@ -99,38 +99,17 @@ $(document).ready(function () {
         "<h3>References</h3>" +
         "<p>Reference 1: VTU University</p>" +
         "<p>Reference 2: Moolya Software Testing</p>" +
-      "</div>").insertBefore("#footer");
-
-    // header properties changed for animation purpose
-    $("#header").css({
-        "height": "10px",
-        "overflow": "hidden",
-        "font-size":"15px"
-    });
-
-    // header animation on mouseenter
-    $("#header").mouseenter(function () {
-        $(this).animate({ height: "40px",fontSize:"35px"},700);
-    });
-
-    // header animation on mouseleave
-    $("#header").mouseleave(function () {
-        $(this).animate({ height: "10px" ,fontSize:"15px"},700);
-    });
+        "</div>").insertBefore("#footer");
 
     // footer slideDown effect
-    $("#footer").slideDown(10000,function () {
-        alert("Footer animation completed!");
+    $("#footer").slideDown(5000, function () {
+        $("#myModal").modal("show");
     });
 
-    // Accordion
-    $("#accordion").accordion({
-        collapsible: true,
-        heightStyle: "content",
+    // OK Button in Modal
+    $("#okBtn").click(function () {
+        $("#myModal").modal("hide");
     });
-
-    // Tabs
-    $("#tabs").tabs();
 
     // jQuery UI Buttons with Icons
     $("button").button();
@@ -144,25 +123,6 @@ $(document).ready(function () {
     // Datepicker
     $("#datepicker").datepicker({
         dateFormat: "dd/mm/yy"
-    });
-
-    // Modal Dialog
-    $("#dialogBox").dialog({
-        autoOpen: false,
-        modal: true,
-        buttons: {
-            "OK": function () {
-                $(this).dialog("close");
-            },
-            "Cancel": function () {
-                $(this).dialog("close");
-            }
-        }
-    });
-
-    // SlideDown Header → Open Dialog Instead of Alert
-    $("#header").hide().slideDown(1500, function () {
-        $("#dialogBox").dialog("open");
     });
 
     // Autocomplete for Largest Word Input
@@ -180,4 +140,35 @@ $(document).ready(function () {
     $("#wordList").autocomplete({
         source: techStack
     });
+
+    $("#menuToggle").click(function () {
+        $("#sidebar").toggleClass("active");
+    });
+
+    $(document).click(function (e) {
+        if (!$(e.target).closest('#sidebar, #menuToggle').length) {
+            $("#sidebar").removeClass("active");
+        }
+    });
+
+    $("#sidebar a").click(function () {
+        if ($(window).width() >= 768 && $(window).width() <= 991) {
+            $("#sidebar").removeClass("active");
+        }
+    });
+
+    // Enable Bootstrap Tooltips
+    $('#sidebar a').tooltip();
+
+
+
+    // Toast
+    $("#showToast").click(function () {
+        var x = document.getElementById("toast");
+        x.className = "show";
+        setTimeout(function () {
+            x.className = x.className.replace("show", "");
+        }, 1000);
+    });
+
 });
