@@ -58,16 +58,17 @@ insert into tWall values(5, NOW(), 'Just finished a great book!');
 select * from tUser where name = 'John Doe';
 
 -- 2. Query to fetch all posts of a person given his name
-select post from tWall where user_id = (select user_id from tUser where name = 'John Doe');
+select post from tWall w inner join tUser u on w.user_id = u.user_id where u.name = 'John Doe';
 
 -- 3. Query to fetch all posts of a particular friend of a person, given his name and the friends name.
-select post from tWall where user_id = (select friend_id from tFriends where user_id = (select user_id from tUser where name = 'John Doe') and friend_id = (select user_id from tUser where name = 'Jane mark'));
+select post from tWall i inner join tUser u on i.user_id = u.user_id inner join tFriends f on u.user_id = f.friend_id where f.user_id = (select user_id from tUser where name = 'John Doe') and u.name = 'Jane mark';
 
 -- 4. Query to fetch all friends of a particular friend of a person, given the persons name and friend's name.
-select name from tUser where user_id in (select friend_id from tFriends where user_id=(select user_id from tUser where name='John Doe') and friend_id !=(select user_id from tUser where name='Jane mark'));
+SELECT u2.name FROM tFriends f1 JOIN tFriends f2 ON f1.friend_id = f2.user_id JOIN tUser u1 ON f1.user_id = u1.user_id JOIN tUser u2 ON f2.friend_id = u2.user_id
+WHERE u1.name = 'John Doe' AND f1.friend_id = (SELECT user_id FROM tUser WHERE name = 'Jane mark');   
 
 -- 5. Query to remove a particular friend from a persons list, given the persons name
-delete from tFriends where user_id = (select user_id from tUser where name = 'John Doe') and friend_id = (select user_id from tUser where name = 'Alice Johnson');
+delete from tFriends f inner join tUser u on f.user_id = u.user_id where u.name = 'John Doe' and f.friend_id = (select user_id from tUser where name = 'Alice Johnson');
 
 -- 6. Query to post something on his wall
 insert into tWall values((select user_id from tUser where name = 'John Doe'), NOW(), 'Just posted a new update on my wall!');
