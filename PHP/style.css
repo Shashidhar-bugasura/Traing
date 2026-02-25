@@ -1,0 +1,103 @@
+/* ===== Page Background ===== */
+body {
+    margin: 0;
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== Outer Main Box (Centered) ===== */
+.wrapper {
+    width: 900px;              /* Fixed width */
+    margin: 40px auto;         /* Center horizontally with some top margin */
+    border: 3px solid black;   /* Outer border */
+    background-color: white;
+}
+
+/* ===== Header ===== */
+.header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 20px 0;
+    border-bottom: 3px solid black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+/* ===== Main Section ===== */
+.main {
+    display: flex;
+    min-height: 500px;
+}
+
+/* ===== Left Friends Panel ===== */
+.left {
+    width: 30%;
+    border-right: 3px solid black;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Friend Names */
+.friend {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.friend a {
+    text-decoration: none;
+    color: black;
+}
+.friend a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+/* ===== Right Wall Panel ===== */
+.right {
+    width: 70%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* ===== Post Box ===== */
+.post-box {
+    border: 3px solid black;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+/* ===== Individual Post ===== */
+.post {
+    border: 3px solid black;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+/* Date */
+.post-date {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+/* Button */
+button {
+    padding: 5px 15px;
+    cursor: pointer;
+}
