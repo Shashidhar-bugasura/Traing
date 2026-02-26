@@ -1,11 +1,29 @@
 <?php
 include "db.php";
 
-$user_id = intval($_POST['user_id']);
-$post = $_POST['post'];
+if(isset($_POST['user_id']) && isset($_POST['post'])){
 
-$sql = "INSERT INTO tWall(user_id, post) VALUES($user_id, '$post')";
-mysqli_query($conn, $sql);
+    $user_id = intval($_POST['user_id']);
+    $post = mysqli_real_escape_string($conn, $_POST['post']);
+    $date = date("Y-m-d H:i:s");
 
-header("Location: index.php?user_id=$user_id");
+    if($post == ""){
+        echo "error";
+        exit();
+    }
+
+    $query = mysqli_query($conn, "
+        INSERT INTO tWall (user_id, post, posting_date)
+        VALUES ($user_id, '$post', '$date')
+    ");
+
+    if($query){
+        echo "success";
+    } else {
+        echo "error";
+    }
+
+} else {
+    echo "error";
+}
 ?>

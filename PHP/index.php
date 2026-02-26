@@ -3,17 +3,6 @@ include "db.php";
 
 $user_id = isset($_GET['user_id']) ? intval($_GET['user_id']) : 1;
 
-// INSERT POST (if submitted) 
-if (isset($_POST['add_post'])) {
-    $post = mysqli_real_escape_string($conn, $_POST['post']);
-    $date = date("Y-m-d H:i:s");
-    
-    mysqli_query($conn, "
-        INSERT INTO tWall (user_id, post, posting_date)
-        VALUES ($user_id, '$post', '$date')
-    ");
-}
-
 // GET USER DETAILS
 $userQuery = mysqli_query($conn, "SELECT * FROM tUser WHERE user_id=$user_id");
 $user = mysqli_fetch_assoc($userQuery);
@@ -41,6 +30,7 @@ $wallQuery = mysqli_query($conn, "
 <head>
     <title>Social Media</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -74,30 +64,77 @@ $wallQuery = mysqli_query($conn, "
 
             <!-- POST FORM -->
             <div class="post-box">
-                <form method="POST">
-                    <textarea name="post" required placeholder="Write something..."></textarea>
-                    <button type="submit" name="add_post">Post</button>
-                </form>
+
+                <textarea id="postText" placeholder="Write something..."></textarea>
+                <br>
+                <button id="postBtn">Post</button>
+
+                <div id="message"></div>
+
             </div>
 
             <!-- POSTS -->
-            <?php while($post = mysqli_fetch_assoc($wallQuery)) { ?>
-                <div class="post">
-                    <div class="post-date">
-                        <?php echo $post['posting_date']; ?>
+            <div id="postsContainer">
+                <?php while($post = mysqli_fetch_assoc($wallQuery)) { ?>
+                    <div class="post">
+                        <div class="post-date">
+                            <?php echo $post['posting_date']; ?>
+                        </div>
+                        <div>
+                            <?php echo $post['post']; ?>
+                        </div>
                     </div>
-                    <div>
-                        <?php echo $post['post']; ?>
-                    </div>
-                </div>
-            <?php } ?>
+                <?php } ?>
+            </div>
 
         </div>
 
     </div>
 
 </div>
+    <script>
+        $(document).ready(function(){
 
-</body>
+            $("#postBtn").click(function(){
+
+                var postText = $("#postText").val();
+                var userId = <?php echo $user_id; ?>;
+
+                if(postText.trim() == ""){
+                    $("#message").html("<span style='color:red;'>Post cannot be empty!</span>");
+                    return;
+                }
+
+                $.ajax({
+                    url: "post_wall.php",
+                    type: "POST",
+                    data: {
+                        user_id: userId,
+                        post: postText
+                    },
+                    success: function(response){
+
+                        if(response.trim() == "success"){
+                            $("#message").html("<span style='color:green;'>Post added successfully!</span>");
+                            $("#postText").val("");
+
+                            // Reload posts without refreshing page
+                            $("#postsContainer").load("index.php?user_id="+userId+" #postsContainer > *");
+
+                        } else {
+                            $("#message").html("<span style='color:red;'>Error adding post!</span>");
+                        }
+
+                    },
+                    error: function(){
+                        $("#message").html("<span style='color:red;'>Server error!</span>");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+    </body>
 
 </html>
